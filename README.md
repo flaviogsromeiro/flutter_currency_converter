@@ -1,4 +1,6 @@
-<img src="assets\images\banner-project.png" alt="" width="90%" height="%">
+<div align="center">
+    <img src="assets\images\banner-project.png" alt="" width="90%" height="%">
+</div>
 
 ## 🚀 Apresentação
 <br>

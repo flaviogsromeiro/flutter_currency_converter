@@ -2,7 +2,7 @@
 
 ## 🚀 Apresentação
 <br>
-📍 Conheça o meu projeto n° 6 aqui no Github. Dessa vez, o aplicativo <b>Currency Converter</b> tem o intuito de converter as moedas EURO, DÓLAR e REAL usando a api <b>HG Brasil</b>. É meu primeiro aplicativo que conecta diretamente com com dados externos.
+📍 Conheça o meu projeto n° 6 aqui no Github. Dessa vez, o aplicativo <b>Currency Converter</b> tem o intuito de converter as moedas EURO, DÓLAR e REAL usando a api <b>HG Brasil</b>. É meu primeiro aplicativo que conecta diretamente com dados externos.
 <br>
 <br>
 

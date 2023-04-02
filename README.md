@@ -9,7 +9,7 @@
 ## 📹 Demonstração
 <br>
 <div align="center">
-    <img src="assets\images\demo.gif" alt="" width="80%" height="60%">
+    <img src="assets\images\demo.gif" alt="" width="60%" height="40%">
 </div>
 <br>
 

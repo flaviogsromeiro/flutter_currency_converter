@@ -1,4 +1,6 @@
-<img src="assets\images\banner-project.png" alt="" width="100%" height="%">
+<div align="center">
+    <img src="assets\images\banner-project.png" alt="" width="90%" height="%">
+</div>
 
 ## 🚀 Apresentação
 <br>
@@ -9,7 +11,7 @@
 ## 📹 Demonstração
 <br>
 <div align="center">
-    <img src="assets\images\demo.gif" alt="" width="80%" height="60%">
+    <img src="assets\images\demo.gif" alt="" width="40%" height="20%">
 </div>
 <br>
 

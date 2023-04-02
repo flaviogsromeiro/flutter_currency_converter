@@ -1,5 +1,3 @@
-// ignore_for_file: unused_element, avoid_print
-
 import 'package:conversor_moeda/src/home/services/home_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +15,87 @@ class _HomeState extends State<Home> {
 
   late double dolar;
   late double euro;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color primaryColor = Theme.of(context).colorScheme.primary;
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: const Text(
+          '\$ Conversor \$',
+          style: TextStyle(fontSize: 25, color: Colors.black),
+        ),
+        toolbarHeight: 70,
+        centerTitle: true,
+      ),
+      body: FutureBuilder(
+        future: HomeRepository().getData(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return Center(
+                child: Text(
+                  "Erro ao Carregar Dados :(",
+                  style: TextStyle(
+                    color: primaryColor,
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              );
+            case ConnectionState.waiting:
+              return Center(
+                child: Text(
+                  "Carregando dados..",
+                  style: TextStyle(color: primaryColor, fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
+              );
+            case ConnectionState.active:
+            case ConnectionState.done:
+              final Map source = snapshot.data ?? {};
+              dolar = source['results']['currencies']['USD']['buy'];
+              euro = source['results']['currencies']['EUR']['buy'];
+              return SingleChildScrollView(
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 500,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      SizedBox(
+                        child: Icon(
+                          Icons.monetization_on,
+                          color: primaryColor,
+                          size: 120,
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14),
+                        child: Column(
+                          children: [
+                            buildTextField(
+                                " Reais", "R\$ ", realController, _realChanged),
+                            const Divider(),
+                            buildTextField(" Dólares", "US\$ ", dolarController,
+                                _dolarChanged),
+                            const Divider(),
+                            buildTextField(
+                                " Euros", "€ ", euroController, _euroChanged)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+          }
+        },
+      ),
+    );
+  }
 
   void _realChanged(String text) {
     if (text == '') {
@@ -50,76 +129,6 @@ class _HomeState extends State<Home> {
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).colorScheme.primary;
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text(
-          '\$ Conversor \$',
-          style: TextStyle(fontSize: 25, color: Colors.black),
-        ),
-        toolbarHeight: 70,
-        centerTitle: true,
-      ),
-      body: FutureBuilder(
-        future: HomeRepository().getData(),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-              return Center(
-                child: Text(
-                  "Carregando dados..",
-                  style: TextStyle(color: primaryColor, fontSize: 25),
-                  textAlign: TextAlign.center,
-                ),
-              );
-            default:
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    "Erro ao Carregar Dados :(",
-                    style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              } else {
-                final Map source = snapshot.data ?? {};
-                dolar = source['results']['currencies']['USD']['buy'];
-                euro = source['results']['currencies']['EUR']['buy'];
-                return SingleChildScrollView(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Icon(
-                        Icons.monetization_on,
-                        color: primaryColor,
-                        size: 120,
-                      ),
-                      buildTextField(
-                          " Reais", "R\$ ", realController, _realChanged),
-                      const Divider(),
-                      buildTextField(
-                          " Dólares", "US\$ ", dolarController, _dolarChanged),
-                      const Divider(),
-                      buildTextField(
-                          " Euros", "€ ", euroController, _euroChanged)
-                    ],
-                  ),
-                );
-              }
-          }
-        },
-      ),
-    );
-  }
-
   Widget buildTextField(
       String label, String prefix, TextEditingController c, Function f) {
     final Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -143,7 +152,6 @@ class _HomeState extends State<Home> {
         prefix: Text(
           prefix,
         ),
-        
         hintStyle: const TextStyle(color: Colors.yellow, fontSize: 25),
         labelStyle: const TextStyle(
           color: Colors.yellow,

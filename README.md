@@ -1,24 +1,30 @@
-# APP CONVERSOR DE MOEDA
+<img src="assets\images\banner-project.png" alt="" width="100%" height="%">
 
-📌 Este projeto tem o objetivo de fixar na prática os primeiros conceitos de **Flutter** e **Dart**. O aplicativo conversor de moeda recebe a entrada do usuário e converte a moeda para dólar, euro e real usando a API HGBRASIL.    
+## 🚀 Apresentação
+<br>
+📍 Conheça o meu projeto n° 6 aqui no Github. Dessa vez, o aplicativo <b>Currency Converter</b> tem o intuito de converter as moedas EURO, DÓLAR e REAL usando a api <b>HG Brasil</b>. É meu primeiro aplicativo que conecta diretamente com com dados externos.
+<br>
 <br>
 
-<div align=center>
-    <img src=assets/images/demo.png width=400px>
+## 📹 Demonstração
+<br>
+<div align="center">
+    <img src="assets\images\demo.gif" alt="" width="80%" height="60%">
 </div>
 <br>
 
-## 📍 APRENDIZADOS
+## ⚡ Desafios
 <br>
-<ul>
-    <li>Utilização de API</li>
-    <li>Formulário e máscara para vailidação</li>
-    <li>Diferença de widgets <code> Stateless()</code> e <code> Stateful()</code>.</li>
-    <li>Aplicação dos widgets 
-        <code>Column</code>,
-        <code>Row</code>,
-        <code>Scaffold</code>,
-        <code>Container</code> entre outros.
-    </li>
-    <li>Como gerar o APK do aplicativo.</li>
-</ul>
+📍 Realizar a conexão e estruturar os dados e o primeiro contato com o JSON e Postman.
+<br>
+<br>
+
+## ✔ Widgets Conhecidas
+<br>
+<li><code>FutureBuilder()</code></li>
+<li><code>Scaffold()</code></li>
+<li><code>SingleChildScrollView()</code></li>
+<li><code>TextField()</code></li>
+<li><code>OutlineInputBorder()</code></li>
+</div> 
+<br>
